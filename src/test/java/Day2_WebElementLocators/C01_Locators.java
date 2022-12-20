@@ -64,7 +64,7 @@ public class C01_Locators {
     }
 
     @Test
-    public void tagLocator(){
+    public void tagLocator() {
 
         // tag locator -> "input"
 
@@ -79,7 +79,7 @@ public class C01_Locators {
     }
 
     @Test
-    public void linkLocator() {//anlamadım çalışmıyor
+    public void linkLocator() {
         // link text -> "Şifrenizi mi unuttunuz?"
 
         WebElement forgotPwd = driver.findElement(By.linkText("Şifrenizi mi unuttunuz?"));
@@ -88,7 +88,7 @@ public class C01_Locators {
     }
 
     @Test
-    public void partiallinkTextLocator() {// anlamadım çalışmıyor
+    public void partiallinkTextLocator() {
         // link text -> "Forgot password?"
 
         WebElement forgotPwd = driver.findElement(By.partialLinkText("unuttunuz"));
@@ -119,6 +119,31 @@ Bazen bunu kullanma amacı, ortak kısmi metne sahip bir sayfada birden çok ba�
         WebElement email = driver.findElement(By.xpath("//*[@id='session_key']"));
         email.sendKeys("relative xpath başarılı");
     }
+
+    @Test
+    public void multipleAttributeXpath() {
+
+        WebElement email = driver.findElement(By.xpath("//input[@class='input__input'][@name='session_key']"));
+        email.sendKeys("multipleAttribute başarılı");
+
+    }
+    @Test
+    public void andXpath() {
+
+        WebElement email = driver.findElement(By.xpath("//input[@class='input__input'and @name='session_key']"));
+        email.sendKeys("and or xpath başarılı");
+
+    }
+
+    @Test
+    public void containsXpath() {
+
+        WebElement email = driver.findElement(By.xpath("//input[contains(@name,'key')]"));
+        email.sendKeys("ontainsXpath başarılı");
+
+    }
+
+
 
 
 }

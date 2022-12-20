@@ -5,7 +5,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class C03_JunitAssertions {
@@ -56,5 +58,14 @@ public class C03_JunitAssertions {
 
     }
 
-
+    //TO BE CONTINUED
+    // 3- Test that the Amazon logo appears in the upper left corner.
+    @Test
+    public void testLogo(){
+        driver.get("https://www.amazon.com/");
+        WebElement logoElement = driver.findElement(By.xpath("//a[@id='nav-logo-sprites']"));
+        // WebElement logoElement = driver.findElement(By.cssSelector("#nav-logo > a > span.nav-sprite.nav-logo-base"));
+        // Check if the logo element is displayed
+        Assert.assertTrue(logoElement.isDisplayed());
+    }
 }
