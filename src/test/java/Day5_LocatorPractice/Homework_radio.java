@@ -8,11 +8,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.List;
 
-public class Deneme05_radio {
+public class Homework_radio {
 
 /*
 ©
@@ -35,39 +37,48 @@ Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdır�
         driver.manage().window().maximize();
     }
 
-   // @After
+
+    // @After
    // public void tearDown() throws InterruptedException {
    //     Thread.sleep(3000);
    //     driver.quit();
    // }
-/*
+
     @Test
     public void checkBoxes() throws InterruptedException {
 
-//Go to URL: https://demoqa.com/radio-button
-        driver.get("https://demoqa.com/radio-button");
+        //Go to URL: https://demoqa.com/radio-button
+       driver.get("https://demoqa.com/radio-button");
 
 
-        //Soruya verilen 3 seçeneğin de seçilme durumlarını doğrulayınız.//input[@id='yesRadio']
-        List<WebElement> radioButon = driver.findElements(By.xpath("//input[@type='radio'] "));
+        //Soruya verilen 3 seçeneğin de seçilme durumlarını doğrulayınız.
+        WebElement YesRadioButon = driver.findElement(By.xpath(" //input[contains(@id,'yesRadio')]"));
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));//Explicit Wait
+        //wait.until(ExpectedConditions.visibilityOf(YesRadioButon));//Explicit Wait
+        YesRadioButon.click();
+        System.out.println(driver.findElement(By.xpath("//p[contains(@class,'mt-3')]")).getText());
+        Assert.assertTrue(YesRadioButon.isSelected());
 
 
-        for (int i = 0; i < radioButon.size()-1; i++) {
-            radioButon.get(i).click();
-            Assert.assertTrue(radioButon.get(i).isSelected());
-            System.out.println(driver.findElement(By.xpath("//p[@class='mt-3'] ")));
-        }
+        WebElement impressiveRadioButon = driver.findElement(By.xpath(" //input[contains(@id,'impressiveRadio')]"));
+        impressiveRadioButon.click();
+        System.out.println(driver.findElement(By.xpath("//p[contains(@class,'mt-3')]")).getText());
+        Assert.assertTrue(impressiveRadioButon.isSelected());
 
-        // Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdırınız.
+        /*
+        WebElement noRadioButon = driver.findElement(By.xpath(" //input[contains(@id,'noRadio')]"));
+        noRadioButon.click();
+        System.out.println(driver.findElement(By.xpath("//p[contains(@class,'mt-3')]")).getText());
+        Assert.assertTrue(noRadioButon.isSelected());
 
-
+         */
 
 
 
     }
 
 
- */
+ /*
    @Test
    public void test(){
        //Go to URL: https://demoqa.com/radio-button
@@ -90,5 +101,7 @@ Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdır�
 
 
 
+
+  */
 
 }
