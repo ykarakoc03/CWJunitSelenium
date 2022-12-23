@@ -81,14 +81,21 @@ public class C02_Dropdown {
 
     @Test
     public void multipleSelect() {
-     driver.get("https://output.jsbin.com/osebed/2");
+        driver.get("https://output.jsbin.com/osebed/2");
 
-     Select select= new Select(driver.findElement(By.id("fruits")));
+        Select select = new Select(driver.findElement(By.id("fruits")));
         System.out.println(select.isMultiple());//çoklu seçime izin veriyor mu?//True
 
         // iki seçim yapıldı
-        select.selectByValue("apple");
         select.selectByIndex(3);
+        select.selectByValue("apple");
+
+        select.deselectByIndex(3);// secimi kaldırdık
+        for (  WebElement ops: select.getAllSelectedOptions()) {
+            System.out.println(ops.getText());
+        }
+
+
 
     }
     @Test

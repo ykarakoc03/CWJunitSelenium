@@ -1,6 +1,7 @@
 package Day5_LocatorPractice;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -38,24 +41,33 @@ Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdır�
     }
 
 
-    // @After
-   // public void tearDown() throws InterruptedException {
-   //     Thread.sleep(3000);
-   //     driver.quit();
-   // }
+    @After
+   public void tearDown() throws InterruptedException {
+       Thread.sleep(3000);
+       driver.quit();
+   }
 
     @Test
     public void checkBoxes() throws InterruptedException {
 
         //Go to URL: https://demoqa.com/radio-button
-       driver.get("https://demoqa.com/radio-button");
+        driver.get("https://demoqa.com/radio-button");
 
 
+
+         //Wait<WebDriver> waitt= new FluentWait<WebDriver>(driver).
+         //      withTimeout(Duration.ofSeconds(10)).
+         //      pollingEvery(Duration.ofMillis(10)).
+         //      ignoring(NoSuchFieldError.class);
+//
         //Soruya verilen 3 seçeneğin de seçilme durumlarını doğrulayınız.
-        WebElement YesRadioButon = driver.findElement(By.xpath(" //input[contains(@id,'yesRadio')]"));
+        WebElement YesRadioButon = driver.findElement(By.xpath("//input[contains(@id,'yesRadio')]"));
+
         //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));//Explicit Wait
-        //wait.until(ExpectedConditions.visibilityOf(YesRadioButon));//Explicit Wait
+        //wait.until(ExpectedConditions.elementToBeClickable(YesRadioButon)).click();//Explicit Wait
+
         YesRadioButon.click();
+
         System.out.println(driver.findElement(By.xpath("//p[contains(@class,'mt-3')]")).getText());
         Assert.assertTrue(YesRadioButon.isSelected());
 
@@ -76,6 +88,7 @@ Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdır�
 
 
     }
+
 
 
  /*
