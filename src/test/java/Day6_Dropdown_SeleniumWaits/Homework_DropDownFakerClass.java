@@ -91,6 +91,7 @@ Verify text visible : "No Records Found"
         List<WebElement> selectList = driver.
                 findElements(By.xpath("//div[@class='oxd-grid-4 orangehrm-full-width-grid']//div[@class='oxd-select-wrapper']"));
 
+
         //div elementlerinde seçim için Action
         Actions actions = new Actions(driver);
 
@@ -101,7 +102,7 @@ Verify text visible : "No Records Found"
         infoButtons.get(1).sendKeys(faker.idNumber().valid());
 
         //Employment Status -> select by index: 2
-        //selectList.get(0).click();
+
         actions.click(selectList.get(0)).sendKeys(Keys.DOWN).sendKeys(Keys.DOWN).click().build().perform();
 
         //Include -> selectByVisibleText: Current and Past Employees

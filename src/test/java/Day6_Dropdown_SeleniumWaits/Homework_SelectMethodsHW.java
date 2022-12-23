@@ -47,7 +47,7 @@ public class Homework_SelectMethodsHW {
     // }
 
     @Test
-    public void checkBoxes() throws InterruptedException {
+    public void test01()  {
 
         //Go to URL:
         driver.get("https://demoqa.com/select-menu");
@@ -78,6 +78,7 @@ public class Homework_SelectMethodsHW {
 
     public void kontrol(Select select,String renk) {
         Assert.assertEquals(select.getFirstSelectedOption().getText(), renk);
+
     }
 
 

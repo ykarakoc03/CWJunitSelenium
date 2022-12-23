@@ -4,7 +4,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -41,17 +43,28 @@ public class Homework_SelectGetMethods {
     @Test
     public void checkBoxes() throws InterruptedException {
 
-        //Go to URL:
-        driver.get("https://demoqa.com/select-menu");
-       //- https://demoqa.com/select-menu sitesine gidin
+        //- https://demoqa.com/select-menu sitesine gidin
+        driver.get(" https://demoqa.com/select-menu");
+
        //- multiple <select> elementini locate edin
+        WebElement arabalar= driver.findElement(By.id("cars"));
+        Select select=new Select(arabalar);
+
        //- getOptions(), getFirstSelectedOption(), getAllSelected() methodlarini kullanmak adina:
        //* Farkli secimler yaparak methodlarinizi kullanin ve Assertion yapmayi unutmayin
+        select.getOptions().stream().forEach(t-> System.out.println(t.getText()));
+
+        select.selectByIndex(2);
+        select.selectByValue("audi");
+
+        Assert.assertTrue( select.getFirstSelectedOption().getText().contains("Opel"));
+
+        Assert.assertTrue( select.getAllSelectedOptions().size()==2);
+
+
     }
 
-    public void kontrol(Select select,String renk) {
-        Assert.assertEquals(select.getFirstSelectedOption().getText(), renk);
-    }
+
 
 
 }

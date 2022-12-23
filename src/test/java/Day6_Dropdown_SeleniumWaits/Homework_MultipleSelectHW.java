@@ -44,13 +44,18 @@ public class Homework_MultipleSelectHW {
 
         //Go to URL:
         driver.get("https://demoqa.com/select-menu");
-        //- https://demoqa.com/select-menu sitesine gidin
-        //- Multiple select yapabileceginiz <select> elementini locate edin
-        //- Birden fazla secim yapip secimlerinizi DOGRULAyin
-    }
 
-    public void kontrol(Select select,String renk) {
-        Assert.assertEquals(select.getFirstSelectedOption().getText(), renk);
+        //- Multiple select yapabileceginiz <select> elementini locate edin
+        WebElement element = driver.findElement(By.id("cars"));
+        Select select = new Select(element);
+
+        //- Birden fazla secim yapip secimlerinizi DOGRULAyin
+        Assert.assertTrue(select.isMultiple());
+
+        select.selectByIndex(1);
+        Assert.assertEquals(select.getFirstSelectedOption().getText(), "Saab");
+        select.selectByValue("opel");
+        Assert.assertEquals(select.getAllSelectedOptions().get(1).getText(), "Opel");
     }
 
 
