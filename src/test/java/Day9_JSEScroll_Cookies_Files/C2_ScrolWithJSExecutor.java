@@ -41,7 +41,7 @@ public class C2_ScrolWithJSExecutor extends BaseTest {
         WebElement blueBox = driver.findElement(By.cssSelector("body>div"));
 
         //driver i javascript Ex. hizmetine verdik. yazarken kırmızı cizdi.
-        //dizenle diyince cast yaptı. (JavascriptExecutor) driver;
+        //düzenle diyince cast yaptı. (JavascriptExecutor) driver;
         JavascriptExecutor jse=(JavascriptExecutor) driver;
 
         //hedef bir web elemente yönlendirdik, oraya kadar sayfada indi

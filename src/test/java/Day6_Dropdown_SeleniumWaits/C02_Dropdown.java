@@ -125,9 +125,9 @@ public class C02_Dropdown {
 
         // iki seçim yapıldı
 
-        select.selectByIndex(3);
         select.selectByIndex(2);
-        System.out.println(select.getFirstSelectedOption().getText());//seçili olanlardan ilkini getir
+        select.selectByIndex(3);
+        System.out.println(select.getFirstSelectedOption().getText());//seçilenlerden ilkini getirir
     }
 
     @Test

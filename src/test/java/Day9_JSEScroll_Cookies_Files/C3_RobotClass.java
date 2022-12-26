@@ -13,6 +13,7 @@ public class C3_RobotClass extends BaseTest {
 /*
 dosya yükleme işi yapıyoruz
  */
+
     @Test
     public void robotTest01() throws AWTException, InterruptedException {
         driver.get("https://demo.guru99.com/test/upload/");

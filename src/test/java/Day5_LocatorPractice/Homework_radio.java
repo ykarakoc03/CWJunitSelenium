@@ -63,8 +63,8 @@ Her bir seçenek seçildiğinde aşağıda çıkan text’leri konsolda yazdır�
         //Soruya verilen 3 seçeneğin de seçilme durumlarını doğrulayınız.
         WebElement YesRadioButon = driver.findElement(By.xpath("//input[contains(@id,'yesRadio')]"));
 
-        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));//Explicit Wait
-        //wait.until(ExpectedConditions.elementToBeClickable(YesRadioButon)).click();//Explicit Wait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));//Explicit Wait
+        wait.until(ExpectedConditions.elementToBeClickable(YesRadioButon)).click();//Explicit Wait
 
         YesRadioButon.click();
 
