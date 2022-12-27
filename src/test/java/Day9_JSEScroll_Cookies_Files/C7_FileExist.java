@@ -20,6 +20,7 @@ public class C7_FileExist {
         //birleştirerel absolut path buluyoruz
         filePath= projectRoot+filePath;
 
+
         System.out.println(Files.exists(Paths.get(filePath)));
 
         //dosyanın var olup olmadıgını kontrol ediyoruz

@@ -23,6 +23,8 @@ public class C8_FileExists {
 
         File image = new File(fullPath);//Path imizi file çevirdik
 
+
+
         Assert.assertTrue(image.exists());//kontol ettik
 
 
